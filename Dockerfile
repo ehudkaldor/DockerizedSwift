@@ -6,7 +6,7 @@
 #
 ################################################
 
-FROM		    ehudkaldor/alpine-s6:latest
+FROM		    ehudkaldor/alpine-s6-rpi:latest
 MAINTAINER	Ehud Kaldor <ehud@UnfairFunction.org>
 
 RUN 		    echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
