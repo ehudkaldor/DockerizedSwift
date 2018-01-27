@@ -105,6 +105,9 @@ RUN         cd /opt && \
 # Remove dependencies not needed for running swift
 RUN         apk del --update g++ automake autoconf libtool
 
+# Add the configuration file.
+ADD 		    rootfs /
+
 # create things that swift needs
 RUN         adduser -D swift && \
             mkdir /srv/node && \
@@ -124,6 +127,3 @@ RUN         cd /etc/swift && \
             swift-ring-builder object.builder create 5 3 1 && \
             swift-ring-builder object-1.builder create 5 3 1 && \
             swift-ring-builder object-2.builder create 5 3 1
-
-# Add the configuration file.
-ADD 		    rootfs /
