@@ -105,7 +105,6 @@ RUN         cd /opt && \
 # Remove dependencies not needed for running swift
 RUN         apk del --update g++ automake autoconf libtool
 
-
 # Add the configuration file.
 ADD 		    rootfs /
 
