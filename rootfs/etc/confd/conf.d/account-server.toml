@@ -1,0 +1,6 @@
+[template]
+src = "account-server.conf.tmpl"
+dest = "/etc/swift/account-server.conf"
+keys = [
+  "/NODE/ACCOUNT-SERVER/PORT"
+]
