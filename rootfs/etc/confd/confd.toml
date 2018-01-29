@@ -1,2 +1,5 @@
-backend = "env"
+backend = "etcd"
 log-level = "debug"
+nodes = [
+  "http://etcd1:2379",
+]
