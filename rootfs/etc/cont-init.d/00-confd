@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#confd -onetime -backend env
+# confd -onetime -backend etcd -node http://etcd:2379
+confd -onetime -backend etcd
