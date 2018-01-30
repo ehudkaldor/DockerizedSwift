@@ -9,8 +9,8 @@
 FROM		    ehudkaldor/alpine-s6:latest
 MAINTAINER	Ehud Kaldor <ehud@UnfairFunction.org>
 
-RUN 		    echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-            apk add --update \
+# RUN 		    echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+RUN         apk add --update \
             linux-headers \
             git \
             curl \
