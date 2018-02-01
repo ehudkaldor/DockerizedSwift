@@ -1,1 +1,2 @@
-#!/usr/bin/with-contenv sh
+#!/bin/sh
+exec logutil-service /var/log/swift
