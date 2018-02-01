@@ -1,0 +1,16 @@
+################################################
+#
+#
+#
+#
+#
+################################################
+
+FROM		    ehudkaldor/builder:0.1
+MAINTAINER	Ehud Kaldor <ehud@UnfairFunction.org>
+
+RUN         git clone https://github.com/xattr/xattr.git && \
+            cd xattr && \
+            sed -i "s/u_int32_t/uint32_t/g" xattr/lib_build.py && \
+            python setup.py build
+    #        pip install -e .

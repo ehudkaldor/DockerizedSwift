@@ -1,0 +1,21 @@
+###############################################
+#
+#
+#
+#
+#
+################################################
+
+FROM		    ehudkaldor/builder:latest
+MAINTAINER	Ehud Kaldor <ehud@UnfairFunction.org>
+
+RUN         apk add --update \
+            zlib-dev
+
+RUN         git clone https://github.com/openstack/liberasurecode.git && \
+            cd liberasurecode && \
+            ./autogen.sh && \
+            ./configure && \
+            make && \
+            make test && \
+            make install

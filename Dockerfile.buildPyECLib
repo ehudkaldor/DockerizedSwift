@@ -1,0 +1,17 @@
+###############################################
+#
+#
+#
+#
+#
+################################################
+
+FROM		    ehudkaldor/liberasurecode:0.1
+MAINTAINER	Ehud Kaldor <ehud@UnfairFunction.org>
+
+# ADD         liberasurecode /usr/lib/python2.7/site-packages/liberasurecode/
+
+RUN         git clone https://github.com/openstack/pyeclib.git && \
+            cd pyeclib
+  #        python setup.py install
+  #          pip install -e .
