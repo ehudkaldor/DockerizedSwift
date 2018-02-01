@@ -19,8 +19,6 @@ RUN         apk add --update \
             openssl-dev \
             sqlite \
             xfsprogs \
-            python \
-            py-pip \
             autoconf \
             automake \
             libtool \
@@ -28,9 +26,9 @@ RUN         apk add --update \
             zlib-dev \
             g++ \
             libffi-dev \
+            python \
             python-dev \
-            # py-xattr \
-            # easy_install \
+            py-pip \
             py-nose && \
 		        rm -rf /var/cache/apk/*
 
