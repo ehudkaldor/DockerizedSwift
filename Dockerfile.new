@@ -6,7 +6,7 @@
 #
 ################################################
 
-FROM		    alpine:latest
+FROM		    ehudkaldor/alpine-s6:latest
 MAINTAINER	Ehud Kaldor <ehud@UnfairFunction.org>
 
 ADD         dockerfile_install_scripts /install_scripts
