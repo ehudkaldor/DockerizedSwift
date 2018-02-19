@@ -1,0 +1,2 @@
+#!/bin/sh
+confd -watch -backend etcd 2>&1
