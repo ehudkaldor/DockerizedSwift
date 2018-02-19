@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+
+cd /etc/swift
+
+rm -f *.builder *.ring.gz backups/*.builder backups/*.ring.gz
+
+{{range $ring := ls "/RINGS"}}
+  {{ $replicas := printf "/RINGS/%s/PARAMS/replicas" $ring }}
+  {{ $partition_power := printf "/RINGS/%s/PARAMS/partition-power" $ring }}
+  {{ $min_part_hour := printf "/RINGS/%s/PARAMS/min-part-hour" $ring }}
+swift-ring-builder {{ $ring }}.builder create {{ getv $partition_power }} {{ getv $replicas }} {{ getv $min_part_hour }}
+  {{ $regions := printf "/RINGS/%s/DISKS/" $ring }}
+  {{ range $region := ls $regions }}
+    {{ $zones := printf "/RINGS/%s/DISKS/%s/" $ring $region }}
+    {{ range $zone := ls $zones }}
+      {{ $ips := printf "/RINGS/%s/DISKS/%s/%s" $ring $region $zone }}
+      {{ range $ip := ls $ips }}
+        {{ $ports := printf "/RINGS/%s/DISKS/%s/%s/%s" $ring $region $zone $ip }}
+        {{ range $port := ls $ports }}
+          {{ $devs := printf "/RINGS/%s/DISKS/%s/%s/%s/%s" $ring $region $zone $ip $port }}
+          {{ range $dev := ls $devs }}
+            {{ $weights := printf "/RINGS/%s/DISKS/%s/%s/%s/%s/%s" $ring $region $zone $ip $port $dev }}
+            {{ $weight := getv $weights }}
+swift-ring-builder {{ $ring }}.builder add {{ $region }}{{ $zone }}-{{ $ip }}:{{ $port }}/{{ $dev }} {{ $weight }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+swift-ring-builder {{ $ring }}.builder rebalance
+{{end}}
