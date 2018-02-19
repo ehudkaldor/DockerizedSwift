@@ -16,8 +16,10 @@ RUN         echo "================   starting swift_needs  ===================" 
             /install_scripts/swift_needs.sh && \
             echo "================   starting apk_install_prereqs  ===================" && \
             /install_scripts/apk_install_prereqs.sh && \
-            echo "================   starting pip_install_prereqs  ===================" && \
-            /install_scripts/pip_install_prereqs.sh && \
+            # echo "================   starting pip_install_prereqs  ===================" && \
+            # /install_scripts/pip_install_prereqs.sh && \
+            echo "================   starting easyinstall_install_prereqs  ===================" && \
+            /install_scripts/easyinstall_install_prereqs.sh && \
             echo "================   starting xattr_install  ===================" && \
             /install_scripts/xattr_install.sh && \
             echo "================   starting pyeclib_install  ===================" && \
@@ -26,8 +28,8 @@ RUN         echo "================   starting swift_needs  ===================" 
             /install_scripts/swift_install.sh && \
 #            echo "================   starting swift_from_saio  ===================" && \
 #            /install_scripts/swift_from_saio.sh && \
-            echo "================   starting pip_uninstall_dev  ===================" && \
-            /install_scripts/pip_uninstall_dev.sh && \
+            # echo "================   starting pip_uninstall_dev  ===================" && \
+            # /install_scripts/pip_uninstall_dev.sh && \
             echo "================   starting apk_uninstall_dev  ===================" && \
             /install_scripts/apk_uninstall_dev.sh
 
