@@ -1,5 +1,5 @@
 [DEFAULT]
-# bind_ip = 0.0.0.0
+bind_ip = {{getv "/NODE/ACCOUNT-SERVER/BIND_IP" "0.0.0.0"}}
 bind_port = {{getv "/NODE/ACCOUNT-SERVER/PORT" "6202"}}
 # bind_timeout = 30
 # backlog = 4096
@@ -11,7 +11,7 @@ bind_port = {{getv "/NODE/ACCOUNT-SERVER/PORT" "6202"}}
 #
 # Use an integer to override the number of pre-forked processes that will
 # accept connections.
-# workers = auto
+workers = {{getv "/NODE/ACCOUNT-SERVER/WORKERS" "auto"}}
 #
 # Maximum concurrent requests per worker
 # max_clients = 1024
