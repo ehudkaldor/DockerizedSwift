@@ -20,4 +20,5 @@ RUN         apk add --update \
             autoconf \
             libtool \
             py-setuptools \
-            libffi-dev
+            libffi-dev && \
+            mkdir -p /opt/mount
