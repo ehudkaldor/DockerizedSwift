@@ -5,8 +5,9 @@
 #
 #
 ################################################
+ARG         VERSION
+FROM		    builder:$VERSION
 
-FROM		    ehudkaldor/builder:latest
 MAINTAINER	Ehud Kaldor <ehud@UnfairFunction.org>
 
 RUN         apk add --update \
