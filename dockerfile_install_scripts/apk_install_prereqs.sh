@@ -1,6 +1,7 @@
 #!/bin/sh
-
-apk add --update \
+apk update
+apk upgrade
+apk add \
   linux-headers \
   git \
   curl \
